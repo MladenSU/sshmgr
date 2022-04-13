@@ -52,7 +52,7 @@ class sshManager(managerMenu):
             self.info(
                 "Exit was selected while removing entries, hence nothing will be removed!")
             self.info("Bye Bye!")
-            exit()
+            exit(0)
         for label in toRemove:
             self.parser.remove_section(label)
         self.writeData(f"Successfully removed - {', '.join(toRemove)}!")
@@ -65,10 +65,11 @@ class sshManager(managerMenu):
         elif choice[1] == (choice[0] - 3):
             self.removeData
         elif choice[1] == (choice[0] - 1):
-            exit("Bye Bye!")
+            self.okmsg("Thanks for using the script. Bye!")
+            exit(0)
         else:
             self.sshConnect(self.parser.get(
-                re.sub(r'^\[\d{1,10}\]\s+', '', choice[2]), 'command'))
+                re.sub(r'^\[.{1,4}\]\s+', '', choice[2]), 'command'))
 
     @staticmethod
     def sshConnect(cmd) -> None:

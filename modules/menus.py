@@ -5,23 +5,26 @@ from pathlib import Path
 from modules.coloring import Colors
 import re
 import configparser
+from string import ascii_lowercase, digits
 
 
 class managerMenu(Colors):
     parser = configparser.ConfigParser()
-
     menuCursor = "> "
     menuCursorstyle = ("fg_red", "bold")
     menuStyle = ("bg_green", "fg_black")
 
     def enumerateMenus(self, menuList: list) -> list:
+        menuOption = digits + ascii_lowercase
+        c = 0
         result = []
         indicator = re.compile(r"^\[.\]")
-        for num, item in list(enumerate(menuList)):
+        for item in menuList:
             if re.match(indicator, item):
                 result.append(item)
             else:
-                result.append(f"[{num + 1}] {item}")
+                result.append(f"[{menuOption[c]}] {item}")
+                c += 1
         return result
 
     @property
