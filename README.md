@@ -1,3 +1,6 @@
+
+# THIS README SHOULD BE FIXED SINCE SOME OF THE INFO IS NOT CORRECT
+
 ### SSH Connections manager
 
 ---
