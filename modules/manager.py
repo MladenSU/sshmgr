@@ -40,7 +40,8 @@ class sshManager(managerMenu):
         server = pyin.inputStr("Server/Host: ")
         port = pyin.inputInt("Port number: ")
         key = self.keysMenu
-        self.parser[label] = {"command": f"ssh -p {port} {username}@{server} {key}"}
+        self.parser[label] = {
+            "command": f"ssh -p {port} {username}@{server} {key}"}
         self.writeData(f"Successfully added - \"{label}\"!")
 
     @property

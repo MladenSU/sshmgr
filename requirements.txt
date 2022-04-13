@@ -1,0 +1,5 @@
+termcolor==1.1.0
+pathlib==1.0.1
+simple_term_menu==1.4.1
+configparser==5.2.0
+pyinputplus==0.2.12

@@ -6,9 +6,10 @@ from modules.coloring import Colors
 import re
 import configparser
 
+
 class managerMenu(Colors):
     parser = configparser.ConfigParser()
-    
+
     menuCursor = "> "
     menuCursorstyle = ("fg_red", "bold")
     menuStyle = ("bg_green", "fg_black")

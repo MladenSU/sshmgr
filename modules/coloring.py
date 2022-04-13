@@ -1,5 +1,6 @@
 from termcolor import colored
 
+
 class Colors:
     @staticmethod
     def warning(text):
