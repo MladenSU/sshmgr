@@ -6,7 +6,8 @@ from modules.coloring import Colors
 import re
 import configparser
 from string import ascii_lowercase, digits
-
+import pyinputplus as pyin
+import subprocess
 
 class managerMenu(Colors):
     parser = configparser.ConfigParser()
@@ -44,7 +45,6 @@ class managerMenu(Colors):
             menu_cursor_style=self.menuCursorstyle,
             menu_highlight_style=self.menuStyle,
             cycle_cursor=True,
-            clear_screen=True,
         )
 
         menu_entry_index = terminal_menu.show()
@@ -75,7 +75,11 @@ class managerMenu(Colors):
         terminal_menu.show()
         return terminal_menu.chosen_menu_entries
 
+
     def mainMenu(self, configFile):
+        def grepPreview(searchString):
+            grepCmd = f"grep -A1 '{searchString}' {configFile}"
+            return subprocess.run(grepCmd, stdout=subprocess.PIPE, text=True, shell=True).stdout.strip()
         self.parser.read(configFile)
         menu_options = self.enumerateMenus(self.parser.sections())
         if len(menu_options) > 0:
@@ -83,7 +87,17 @@ class managerMenu(Colors):
                 ("[-] Remove Connections", "[+] Add New", "[x] Exit"))
         else:
             menu_options.extend(("[+] Add New", "[x] Exit"))
+            print(configFile)
         terminal_menu = TerminalMenu(
-            menu_options, title="\nPlease select an action:")
+            menu_options,
+            title="\nPlease select an action:",
+            menu_cursor=self.menuCursor,
+            menu_cursor_style=self.menuCursorstyle,
+            menu_highlight_style=self.menuStyle,
+            cycle_cursor=True, 
+            preview_command=grepPreview,
+            preview_size=0.75,
+            )
+
         menu_entry_index = terminal_menu.show()
         return [len(menu_options), menu_entry_index, menu_options[menu_entry_index]]
