@@ -74,6 +74,7 @@ class sshManager(managerMenu):
     @staticmethod
     def sshConnect(cmd) -> None:
         subprocess.run(cmd, shell=True)
+        exit()
 
     @property
     def main(self) -> None:
