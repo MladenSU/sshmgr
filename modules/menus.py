@@ -35,7 +35,7 @@ class managerMenu(Colors):
         keys = [file for file in os.listdir(ssh_folder) if isfile(
             join(ssh_folder, file)) and not re.match(skipping, file)]
         keys.extend(["[+]Custom path", "[x] No key (Skip)"])
-        keys_menu_title = "  SSH Keys\n"
+        keys_menu_title = "  Select an SSH Key:\n"
         keys_menu_items = self.enumerateMenus(keys)
 
         terminal_menu = TerminalMenu(
@@ -78,7 +78,7 @@ class managerMenu(Colors):
 
     def mainMenu(self, configFile):
         def grepPreview(searchString):
-            grepCmd = f"grep -A1 '{searchString}' {configFile}"
+            grepCmd = f"grep -m1 -A1 '{searchString}' {configFile}"
             return subprocess.run(grepCmd, stdout=subprocess.PIPE, text=True, shell=True).stdout.strip()
         self.parser.read(configFile)
         menu_options = self.enumerateMenus(self.parser.sections())

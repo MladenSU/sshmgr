@@ -4,12 +4,19 @@ import pyinputplus as pyin
 from modules.menus import managerMenu
 from pathlib import Path
 from getpass import getpass
+from shutil import which
 
 
 class sshManager(managerMenu):
 
     def __init__(self, configFile: str) -> None:
         self.configFile = configFile
+
+    @property
+    def getPassword(self):
+        if which("sshpass"):
+            return getpass("Password (leave empty if none): ")
+        self.warning("You wouldn't be able to use the password autofill, until you install sshpass!")
 
     @property
     def verifyConfig(self) -> None:
@@ -40,7 +47,7 @@ class sshManager(managerMenu):
         username = pyin.inputStr("Username: ")
         server = pyin.inputStr("Server/Host: ")
         port = pyin.inputInt("Port number: ")
-        password = getpass("Password (leave empty if none): ")
+        password = self.getPassword
         if password:
             self.parser[label] = {
                 "command": f"sshpass -p {password} ssh -p {port} {username}@{server}"}
