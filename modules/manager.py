@@ -3,6 +3,7 @@ import re
 import pyinputplus as pyin
 from modules.menus import managerMenu
 from pathlib import Path
+from getpass import getpass
 
 
 class sshManager(managerMenu):
@@ -27,7 +28,7 @@ class sshManager(managerMenu):
         while True:
             label = pyin.inputStr("Give a label: ")
             self.parser.read(self.configFile)
-            if label not in self.parser.sections():
+            if f"{label} (SSH)" not in self.parser.sections():
                 return f"{label} (SSH)"
             else:
                 self.warning("Label already exists, give another one!")
@@ -39,9 +40,14 @@ class sshManager(managerMenu):
         username = pyin.inputStr("Username: ")
         server = pyin.inputStr("Server/Host: ")
         port = pyin.inputInt("Port number: ")
-        key = self.keysMenu
-        self.parser[label] = {
-            "command": f"ssh -p {port} {username}@{server} {key}"}
+        password = getpass("Password (leave empty if none): ")
+        if password:
+            self.parser[label] = {
+                "command": f"sshpass -p {password} ssh -p {port} {username}@{server}"}
+        else:
+            key = self.keysMenu
+            self.parser[label] = {
+                "command": f"ssh -p {port} {username}@{server} {key}"}
         self.writeData(f"Successfully added - \"{label}\"!")
 
     @property
