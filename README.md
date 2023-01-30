@@ -9,13 +9,13 @@
   <img src="https://img.shields.io/github/issues/MladenSU/SSH-Manager"/>
   <img src="https://img.shields.io/github/forks/MladenSU/SSH-Manager"/>
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS-blue"/>
-  
 </h4>
 
 ---
 
 - [Installation and setup](#installation-and-setup)
 - [Usage](#usage)
+- [](#)
 - [Planned features](#planned-features)
 - [Social Media :mailbox\_with\_no\_mail:](#social-media-mailbox_with_no_mail)
 
@@ -52,21 +52,20 @@
 Let's say that you've already created symbolic link somewhere within your `PATH` and the executable is called `sshmgr`.
 
 1. Since the credentials file is empty, the script will return the following at first:
-  ![initial](docs/images/initial.png)
+  <img src="docs/images/initial.png" alt="init" width=auto height=130 />
     > You can use the arrow keys to navigate or you can use your keyboard. The signs/numbers inside the "[]" (e.g. [+]) are the actual keybinds to access the displayed function
-2. By selecting the "`[+] Add New`" you will be prompted to fill in particular details:
-  ![addnew](docs/images/addnew.png)
+1. By selecting the "`[+] Add New`" you will be prompted to fill in particular details:
+  <img src="docs/images/addnew.png" alt="add" width=auto height=130 />
     > By filling a password the command that will be used to autofill the password upon login is `sshpass` (Make sure to install it).
-3. If you leave the password empty, you will be prompted to select an SSH key:
-  ![key](docs/images/key.png)
+1. If you leave the password empty, you will be prompted to select an SSH key:</br>
+  <img src="docs/images/key.png" alt="key" width=auto height=200 />
     > If you skip adding a key and password, you will be simply prompted with a password when attempting to log in over SSH (password auth SSH connection).
-4. The tool has a preview feature, where you can see what will be executed prior to hitting "Enter":
-  ![preview](docs/images/preview.png)
-5. Finally since we have the ability to add, we should have the ability to remove. You're damn right and you can remove multiple entries at once:
-  ![removal](docs/images/removal.png)
-6. Quick intro
-<iframe src='https://gfycat.com/ifr/EveryOrangeGilamonster' frameborder='0' scrolling='no' allowfullscreen width='640' height='402'></iframe>
-
+1. The tool has a preview feature, where you can see what will be executed prior to hitting "Enter":</br>
+    <img src="docs/images/preview.png" alt="preview" width=auto height=180 />
+1. Finally since we have the ability to add, we should have the ability to remove. You're damn right and you can remove multiple entries at once:</br>
+  <img src="docs/images/removal.png" alt="Removal" width=auto height=130 />
+1. Quick intro
+![intro](docs/images/sshmgr_demo.gif)
 ---
 ## Planned features
 - [ ] GUI
