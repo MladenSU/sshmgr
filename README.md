@@ -84,4 +84,4 @@ Let's say that you've already created symbolic link somewhere within your `PATH`
 - If you would like to suggest a feature, feel free to write an [email](mailto:mladen.projects@gmail.com).
 - For bugs, feel free to open an issue or pull request :)
 
-![MladenSU's github stats](https://github-readme-stats.vercel.app/api?username=MladenSU&show_icons=true&title_color=fff&icon_color=79ff97&text_color=9f9f9f&bg_color=151515)
+![MladenSU's github stats](https://github-readme-stats.vercel.app/api?username=MladenSU&show_icons=true&icon_color=79ff97&bg_color=151515&text_color=9f9f9f)
