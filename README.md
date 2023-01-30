@@ -1,3 +1,5 @@
+# Work in Progress. Will finish ASAPLY :D 
+
 <h2 align="center">SSH Manager (SSHMGR)</h2> 
  <h4 align="center">
   <a href="https://github.com/MladenSU/SSH-Manager/blob/main/LICENSE.md">
@@ -13,9 +15,10 @@
 </h4>
 ---
 
-- [](#)
-- [Social Media :mailbox\_with\_no\_mail:](#social-media-mailbox_with_no_mail)
-- [](#-1)
+- [Work in Progress. Will finish ASAPLY :D](#work-in-progress-will-finish-asaply-d)
+  - [](#)
+  - [Social Media :mailbox\_with\_no\_mail:](#social-media-mailbox_with_no_mail)
+  - [](#-1)
 
 ---
 
