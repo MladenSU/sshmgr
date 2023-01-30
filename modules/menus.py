@@ -87,7 +87,6 @@ class managerMenu(Colors):
                 ("[-] Remove Connections", "[+] Add New", "[x] Exit"))
         else:
             menu_options.extend(("[+] Add New", "[x] Exit"))
-            print(configFile)
         terminal_menu = TerminalMenu(
             menu_options,
             title="\nPlease select an action:",
